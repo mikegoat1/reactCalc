@@ -15,15 +15,18 @@ function App() {
   }; 
  
   function minus(e) { 
-  	// Add the code for the minus function 
+  	e.preventDefault(); 
+    setResult((result) => result - Number(inputRef.current.value)); 
   };
  
   function times(e) { 
-    // Add the code for the plus function 
+  	e.preventDefault(); 
+    setResult((result) => result * Number(inputRef.current.value)); 
   }; 
  
   function divide(e) { 
-    // Add the code for the divide function 
+    e.preventDefault(); 
+    setResult((result) => result % Number(inputRef.current.value)); 
   };
  
   function resetInput(e) { 
@@ -38,7 +41,7 @@ function App() {
     <div className="App"> 
       <div> 
         <h1>Simplest Working Calculator</h1> 
-      </div> 
+      </div>  
       <form> 
         <p ref={resultRef}> 
           {/* add the value of the current total */} 
