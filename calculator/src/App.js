@@ -11,30 +11,40 @@ function App() {
  
   function plus(e) { 
     e.preventDefault(); 
-    setResult((result) => result + Number(inputRef.current.value)); 
+    setResult((result) => result + Number(inputRef.current.value));
+    console.log(`${inputRef} this is the hook input`) 
+    console.log(result)
+
   }; 
  
   function minus(e) { 
   	e.preventDefault(); 
     setResult((result) => result - Number(inputRef.current.value)); 
+    console.log(result)
+
   };
  
   function times(e) { 
   	e.preventDefault(); 
     setResult((result) => result * Number(inputRef.current.value)); 
+    console.log(result)
+
   }; 
  
   function divide(e) { 
     e.preventDefault(); 
-    setResult((result) => result % Number(inputRef.current.value)); 
+    setResult((result) => result / Number(inputRef.current.value)); 
+    console.log(result)
   };
  
   function resetInput(e) { 
-    // Add the code for the resetInput function 
+    e.preventDefault()
+    inputRef.current.value = ""
   }; 
  
   function resetResult(e) { 
-  	// Add the code for the resetResult function 
+    e.preventDefault(); 
+    setResult(0)
   }; 
  
   return ( 
@@ -44,7 +54,7 @@ function App() {
       </div>  
       <form> 
         <p ref={resultRef}> 
-          {/* add the value of the current total */} 
+          {result} 
         </p> 
         <input
           pattern="[0-9]" 
@@ -56,11 +66,9 @@ function App() {
         <button onClick={minus}>subtract</button>
         <button onClick={times}>multiply</button>
         <button onClick={divide}>divide</button>
-        {/* Add the subtract button */} 
-        {/* Add the multiply button */} 
-        {/* Add the divide button */} 
-        {/* Add the resetInput button */} 
-        {/* Add the resetResult button */} 
+        <button onClick={resetInput}>reset input</button>
+        <button onClick={resetResult}>reset result</button>
+
       </form> 
     </div> 
   ); 
